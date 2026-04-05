@@ -120,7 +120,28 @@ openclaw config set channels.default "feishu"
 
 ---
 
-## 🚀 第六步：启动！见证奇迹的时刻
+## 🌐 第六步：配置网关以允许远程 HTTP 访问
+
+如果你需要通过配套 App 或者网页控制台远程连接并管理你的 OpenClaw，我们需要修改网关的配置，允许外部 IP 以 HTTP 形式访问。
+
+**1. 允许任意 IP 访问**（默认只允许本地 `127.0.0.1`）：
+```bash
+openclaw config set gateway.bind "0.0.0.0"
+```
+
+**2. 关闭强制 TLS/HTTPS**（以便直接使用 HTTP 访问）：
+```bash
+openclaw config set gateway.tls.enabled false
+```
+
+**3. 配置远程 URL**（将 `<你的主机公网IP>` 替换为你 Linux 主机的真实 IP）：
+```bash
+openclaw config set gateway.remote.url "http://<你的主机公网IP>:3000"
+```
+
+---
+
+## 🚀 第七步：启动！见证奇迹的时刻
 
 一切就绪，是时候唤醒你的 AI 助手了。
 
