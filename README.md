@@ -204,3 +204,18 @@ openclaw gateway status
 openclaw gateway token
 ```
 复制这串字符，粘贴到登录页面的 Token 框中，即可成功连接！
+
+---
+
+## 🛠️ 附录二：OpenClaw 常用命令备忘录
+
+为了让你更好地管理机器人，这里整理了几个最常用的 OpenClaw 命令，建议收藏备用：
+
+- `openclaw gateway start`：**启动网关**（在后台默默运行机器人服务）。
+- `openclaw gateway stop`：**停止网关**（关闭机器人服务）。
+- `openclaw gateway restart`：**重启网关**（修改配置后如果未生效，可以尝试重启）。
+- `openclaw gateway status`：**查看状态**（看看机器人是不是在正常运行）。
+- `openclaw gateway log`：**查看日志**（如果机器人出错了、不回消息了，输入这个看具体的报错信息）。
+- `openclaw gateway token`：**获取远程令牌**（用于登录可视化控制台）。
+- `openclaw health`：**健康检查**（一键检查主机的系统状态、安全风险和更新建议）。
+- `openclaw config list`：**查看所有配置**（看看你目前给 OpenClaw 设置了哪些参数）。
