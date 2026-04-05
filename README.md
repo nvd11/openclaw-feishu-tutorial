@@ -191,3 +191,16 @@ openclaw gateway status
 
 ---
 *提示：如果想要查看日志看有没有报错，可以输入 `openclaw gateway log`；如果要停止机器人，可以输入 `openclaw gateway stop`。*
+
+---
+
+## 🎁 附录：如何远程连接你的机器人后台？
+
+既然在第四步我们配置了允许外部 HTTP 访问，你就可以通过 OpenClaw 配套的 App 或者网页端控制台来可视化管理你的机器人了。
+
+但在登录控制台时，系统会要求你输入一个 **Gateway Token（网关令牌）** 作为安全密码。
+你只需要在 Linux 终端中运行以下命令，即可查看你的专属 Token：
+```bash
+openclaw gateway token
+```
+复制这串字符，粘贴到登录页面的 Token 框中，即可成功连接！
