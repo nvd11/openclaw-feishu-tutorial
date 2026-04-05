@@ -69,7 +69,28 @@ openclaw config set providers.google.apiKey "YOUR_GEMINI_API_KEY"
 
 ---
 
-## 🤖 第四步：去飞书创建你的机器人应用
+## 🌐 第四步：配置网关以允许远程 HTTP 访问
+
+如果你需要通过配套 App 或者网页控制台远程连接并管理你的 OpenClaw，我们需要修改网关的配置，允许外部 IP 以 HTTP 形式访问。这步要在配置具体渠道之前先做好：
+
+**1. 允许任意 IP 访问**（默认只允许本地 `127.0.0.1`）：
+```bash
+openclaw config set gateway.bind "0.0.0.0"
+```
+
+**2. 关闭强制 TLS/HTTPS**（以便直接使用 HTTP 访问）：
+```bash
+openclaw config set gateway.tls.enabled false
+```
+
+**3. 配置远程 URL**（将 `<你的主机公网IP>` 替换为你 Linux 主机的真实 IP）：
+```bash
+openclaw config set gateway.remote.url "http://<你的主机公网IP>:3000"
+```
+
+---
+
+## 🤖 第五步：去飞书创建你的机器人应用
 
 为了让 OpenClaw 能够在飞书里和你聊天，我们要在飞书后台创建一个机器人的“身份”。
 
@@ -95,7 +116,7 @@ openclaw config set providers.google.apiKey "YOUR_GEMINI_API_KEY"
 
 ---
 
-## 🔗 第五步：将飞书配置到 OpenClaw
+## 🔗 第六步：将飞书配置到 OpenClaw
 
 回到你的 Linux 终端，现在要把刚刚从飞书拿到的 `App ID` 和 `App Secret` 告诉 OpenClaw。
 
@@ -122,27 +143,6 @@ openclaw config set plugins.entries.feishu.enabled true
 **4. 告诉 OpenClaw 默认使用飞书作为聊天渠道：**
 ```bash
 openclaw config set channels.default "feishu"
-```
-
----
-
-## 🌐 第六步：配置网关以允许远程 HTTP 访问
-
-如果你需要通过配套 App 或者网页控制台远程连接并管理你的 OpenClaw，我们需要修改网关的配置，允许外部 IP 以 HTTP 形式访问。
-
-**1. 允许任意 IP 访问**（默认只允许本地 `127.0.0.1`）：
-```bash
-openclaw config set gateway.bind "0.0.0.0"
-```
-
-**2. 关闭强制 TLS/HTTPS**（以便直接使用 HTTP 访问）：
-```bash
-openclaw config set gateway.tls.enabled false
-```
-
-**3. 配置远程 URL**（将 `<你的主机公网IP>` 替换为你 Linux 主机的真实 IP）：
-```bash
-openclaw config set gateway.remote.url "http://<你的主机公网IP>:3000"
 ```
 
 ---
